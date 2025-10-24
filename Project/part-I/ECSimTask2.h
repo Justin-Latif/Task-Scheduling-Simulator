@@ -22,6 +22,11 @@ class ECMultiIntervalsTask : public ECSimTask
 public:
     ECMultiIntervalsTask(const std::string &tid);
     // your code here..    
+    void AddInterval(int a, int b);
+    virtual bool IsReadyToRun(int tick) const;
+    virtual bool IsFinished(int tick) const;
+private:
+    vector<pair<int,int>> intervals;
 };
 
 //***********************************************************
@@ -33,6 +38,11 @@ public:
     ECHardIntervalTask(const std::string &tid, int tmStart, int tmEnd);
     
     // your code here..    
+    virtual bool IsReadyToRun(int tick) const;
+    virtual bool IsFinished(int tick) const;
+private:
+    int tmStart;
+    int tmEnd;
 };
 
 //***********************************************************
@@ -44,6 +54,15 @@ public:
     ECConsecutiveIntervalTask(const std::string &tid, int tmStart, int tmEnd);
     
     // your code here..    
+    virtual void Wait(int tick, int duration);
+    virtual void Run(int tick, int duration);
+    virtual bool IsReadyToRun(int tick) const;
+    virtual bool IsFinished(int tick) const;
+private:
+    int tmStart;
+    int tmEnd;
+    bool started;
+    bool interrupted;
 };
 
 //***********************************************************
@@ -56,6 +75,12 @@ public:
     ECPeriodicTask(const std::string &tid, int tmStart, int runLen, int sleepLen);
     
     // your code here..    
+    virtual bool IsReadyToRun(int tick) const;
+    virtual bool IsFinished(int tick) const;
+private:
+    int tmStart;
+    int runLen;
+    int sleepLen;
 };
 
 #endif /* ECSimTask2_h */
