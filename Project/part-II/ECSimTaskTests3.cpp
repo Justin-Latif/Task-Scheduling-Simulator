@@ -38,7 +38,7 @@ static void Test0()
     ASSERT_EQ( t2.GetTotRunTime(), 1);
     ASSERT_EQ( t2.GetTotWaitTime(), 2);
 }
-/*
+
 // FIFO scheduler. One consecutive interval and one simple interval (which came earlier)
 static void Test1()
 {
@@ -122,7 +122,7 @@ static void Test3()
 // Three interval tasks, one with start deadlines and one with end deadlines
 static void Test4()
 {
-    cout << "****Test5\n";
+    cout << "****Test4\n";
     // FIFO scheduler: two simple tasks
     ECSimIntervalTask t1("t1", 3,7);
     ECSimIntervalTask t2("t2", 6,9);
@@ -251,7 +251,7 @@ static void Test7()
     ASSERT_EQ( t2pe.GetTotRunTime(), 9);
     ASSERT_EQ( t2pe.GetTotWaitTime(), 0);
 }
-*/
+
 
 
 // Un-comment out test cases when you get the implementaiton
@@ -259,11 +259,11 @@ static void Test7()
 int main()
 {
     Test0();
-/*    Test1();
+    Test1();
     Test2();
     Test3();
     Test4();
     Test5();
     Test6();
-    Test7(); */
+    Test7();
 }
